@@ -1,4 +1,5 @@
 require 'refinerycms-core'
+require 'geocoder'
 require 'carmen-rails'
 
 module Refinery

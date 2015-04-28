@@ -5,6 +5,10 @@ module Refinery
 
       before_validation :smart_add_url_protocol
 
+      geocoded_by :geocode_address_string
+
+      after_validation :geocode
+
       validates :address, :presence => true, :uniqueness => true
 
       acts_as_indexed :fields => [:title, :contact, :address, :country_code, :state_code, :city]
@@ -15,13 +19,17 @@ module Refinery
 
       protected
 
-        def smart_add_url_protocol
-          unless self.website.empty?
-            unless (self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//])
-              self.website = "http://#{self.website}"
-            end
+      def geocode_address_string
+        [:address, :state_code, :city, :country_code].map{ |field| self[field.to_s] }.join(', ')
+      end
+
+      def smart_add_url_protocol
+        unless self.website.empty?
+          unless (self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//])
+            self.website = "http://#{self.website}"
           end
         end
+      end
     end
   end
 end

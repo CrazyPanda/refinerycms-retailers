@@ -2,6 +2,7 @@ module Refinery
   module Retailers
     class Engine < Rails::Engine
       extend Refinery::Engine
+      require "geocoder"
       isolate_namespace Refinery::Retailers
 
       engine_name :refinery_retailers
