@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency             'carmen-rails',               '~> 1.0.1'
   s.add_dependency             'actionview-encoded_mail_to', '~> 1.0.5'
   s.add_dependency             'geocoder',                   '~> 1.2.8'
+  s.add_dependency             'jbuilder',                   '~> 2.2.13'
 
   # Development dependencies (usually used for testing)
   s.add_development_dependency 'refinerycms-testing', '~> 3.0.0'

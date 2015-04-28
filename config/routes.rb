@@ -7,6 +7,7 @@ Refinery::Core::Engine.routes.draw do
 
   # Admin routes
   namespace :retailers, :path => '' do
+    get '/retailers/search' => 'retailers#search'
     namespace :admin, :path => Refinery::Core.backend_route do
       resources :retailers, :except => :show do
         collection do
