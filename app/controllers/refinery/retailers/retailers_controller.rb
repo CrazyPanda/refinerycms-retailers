@@ -11,7 +11,7 @@ module Refinery
       end
 
       def search
-        @retailers = Refinery::Retailers::Retailer.near('S61 1LD', 1000)
+        @retailers = Refinery::Retailers::Retailer.near(params[:query], 1000).limit(4).reverse
       end
     end
   end
