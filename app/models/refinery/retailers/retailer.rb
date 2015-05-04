@@ -20,7 +20,9 @@ module Refinery
       protected
 
       def geocode_address_string
-        [:address, :state_code, :city, :country_code].map{ |field| self[field.to_s] }.join(', ')
+        address_attributes = [:address, :county, :city].map{ |field| self[field.to_s] }
+        address_attributes << country_name(retailer.country_code)
+        address_attributes.join(', ')
       end
 
       def smart_add_url_protocol
