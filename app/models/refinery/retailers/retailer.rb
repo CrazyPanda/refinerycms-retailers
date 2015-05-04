@@ -21,7 +21,7 @@ module Refinery
 
       def geocode_address_string
         address_attributes = [:address, :county, :city].map{ |field| self[field.to_s] }
-        address_attributes << country_name(retailer.country_code)
+        address_attributes << country_name(self.country_code)
         address_attributes.join(', ')
       end
 
