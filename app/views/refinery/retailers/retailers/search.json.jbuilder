@@ -1,4 +1,5 @@
 json.retailers @retailers do |retailer|
+  json.id retailer.id
   json.name retailer.title
   json.address retailer.address
   json.city retailer.city
